@@ -17,6 +17,7 @@ import coupon.system.core.repositories.CompanyRepository;
 import coupon.system.core.repositories.CustomerRepository;
 
 @Service
+
 @Transactional
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class AdminService extends ClientService {

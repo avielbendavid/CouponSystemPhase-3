@@ -46,6 +46,11 @@ public class CompanyController {
 	}
 
 	@PutMapping("/update-coupon")
+	
+	
+	
+	
+	
 	public ResponseEntity<?> updateCoupon(@RequestBody Coupon coupon, @RequestHeader String token) {
 		CompanyService companyService = (CompanyService) sessionContext.getSession(token).getAttributes("service");
 		try {
@@ -53,7 +58,7 @@ public class CompanyController {
 			return ResponseEntity.ok("Coupon updated successfully");
 		} catch (CouponSystemException e) {
 			e.printStackTrace();
-			return ResponseEntity.ok("Sorry, can not update the coupon --->>> " + e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sorry, can not update the coupon --->>> " + e.getMessage());
 		}
 	}
 
